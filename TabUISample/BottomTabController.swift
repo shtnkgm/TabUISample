@@ -19,6 +19,7 @@ class BottomTabController: UITabBarController {
         super.didReceiveMemoryWarning()
     }
     
+    /// 表示するViewControllerを初期化する
     private func setUpViewControllers() {
         var viewControllers: [UIViewController] = []
         

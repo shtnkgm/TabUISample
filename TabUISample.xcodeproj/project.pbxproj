@@ -71,14 +71,14 @@
 			isa = PBXGroup;
 			children = (
 				DA1825BA1F1A648700755555 /* AppDelegate.swift */,
+				DA1825CC1F1A658300755555 /* BottomTabController.swift */,
+				DA1825BE1F1A648700755555 /* BottomTabController.storyboard */,
 				DA1825D21F1A67AD00755555 /* TopTabController.swift */,
 				DA1825D41F1A67C100755555 /* TopTabController.storyboard */,
 				DA1FF6CA1F1AA2E40021E7D4 /* TopTabCell.swift */,
 				DA1FF6CB1F1AA2E40021E7D4 /* TopTabCell.xib */,
 				DA5328111F1A89FF006B5C3C /* PageViewController.swift */,
 				DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */,
-				DA1825CC1F1A658300755555 /* BottomTabController.swift */,
-				DA1825BE1F1A648700755555 /* BottomTabController.storyboard */,
 				DA17A22B1F1A715A00668BEF /* CustomViewController.swift */,
 				DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */,
 				DA1825C11F1A648700755555 /* Assets.xcassets */,

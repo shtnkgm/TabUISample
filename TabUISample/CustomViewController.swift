@@ -10,6 +10,9 @@ import UIKit
 
 class CustomViewController: UIViewController {
 
+    /// クラス名
+    static let className = String(describing: CustomViewController.self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,9 +20,10 @@ class CustomViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
+    /// 自身のインスタンスを生成する
     static func create() -> CustomViewController {
-        let storyBoard = UIStoryboard(name: String(describing: self), bundle: nil)
-        return storyBoard.instantiateInitialViewController() as! CustomViewController
+        let storyBoard = UIStoryboard(name: className, bundle: nil)
+        return storyBoard.instantiateViewController(withIdentifier: className) as! CustomViewController
     }
 }

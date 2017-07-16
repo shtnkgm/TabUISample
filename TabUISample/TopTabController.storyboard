@@ -12,7 +12,7 @@
         <!--Top Tab Controller-->
         <scene sceneID="Zrv-dY-sh1">
             <objects>
-                <viewController id="XpL-uu-e2l" customClass="TopTabController" customModule="TabUISample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopTabController" id="XpL-uu-e2l" customClass="TopTabController" customModule="TabUISample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JJ9-dZ-9rS"/>
                         <viewControllerLayoutGuide type="bottom" id="e4h-M3-hSE"/>
