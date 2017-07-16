@@ -7,21 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA17A22C1F1A715A00668BEF /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17A22B1F1A715A00668BEF /* CustomViewController.swift */; };
+		DA17A22E1F1A716B00668BEF /* CustomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */; };
 		DA1825BB1F1A648700755555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1825BA1F1A648700755555 /* AppDelegate.swift */; };
-		DA1825BD1F1A648700755555 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1825BC1F1A648700755555 /* ViewController.swift */; };
-		DA1825C01F1A648700755555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1825BE1F1A648700755555 /* Main.storyboard */; };
+		DA1825C01F1A648700755555 /* BottomTabController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1825BE1F1A648700755555 /* BottomTabController.storyboard */; };
 		DA1825C21F1A648700755555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1825C11F1A648700755555 /* Assets.xcassets */; };
 		DA1825C51F1A648700755555 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1825C31F1A648700755555 /* LaunchScreen.storyboard */; };
+		DA1825CE1F1A658300755555 /* BottomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1825CC1F1A658300755555 /* BottomTabController.swift */; };
+		DA1825D31F1A67AD00755555 /* TopTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1825D21F1A67AD00755555 /* TopTabController.swift */; };
+		DA1825D51F1A67C100755555 /* TopTabController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1825D41F1A67C100755555 /* TopTabController.storyboard */; };
+		DA1FF6CC1F1AA2E40021E7D4 /* TopTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1FF6CA1F1AA2E40021E7D4 /* TopTabCell.swift */; };
+		DA1FF6CD1F1AA2E40021E7D4 /* TopTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1FF6CB1F1AA2E40021E7D4 /* TopTabCell.xib */; };
+		DA5328121F1A89FF006B5C3C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5328111F1A89FF006B5C3C /* PageViewController.swift */; };
+		DA5328141F1A8A35006B5C3C /* PageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA17A22B1F1A715A00668BEF /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomViewController.storyboard; sourceTree = "<group>"; };
 		DA1825B71F1A648700755555 /* TabUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1825BA1F1A648700755555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA1825BC1F1A648700755555 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DA1825BF1F1A648700755555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA1825BF1F1A648700755555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BottomTabController.storyboard; sourceTree = "<group>"; };
 		DA1825C11F1A648700755555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA1825C41F1A648700755555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA1825C61F1A648700755555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA1825CC1F1A658300755555 /* BottomTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabController.swift; sourceTree = "<group>"; };
+		DA1825D21F1A67AD00755555 /* TopTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabController.swift; sourceTree = "<group>"; };
+		DA1825D41F1A67C100755555 /* TopTabController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TopTabController.storyboard; sourceTree = "<group>"; };
+		DA1FF6CA1F1AA2E40021E7D4 /* TopTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabCell.swift; sourceTree = "<group>"; };
+		DA1FF6CB1F1AA2E40021E7D4 /* TopTabCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTabCell.xib; sourceTree = "<group>"; };
+		DA5328111F1A89FF006B5C3C /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +71,16 @@
 			isa = PBXGroup;
 			children = (
 				DA1825BA1F1A648700755555 /* AppDelegate.swift */,
-				DA1825BC1F1A648700755555 /* ViewController.swift */,
-				DA1825BE1F1A648700755555 /* Main.storyboard */,
+				DA1825D21F1A67AD00755555 /* TopTabController.swift */,
+				DA1825D41F1A67C100755555 /* TopTabController.storyboard */,
+				DA1FF6CA1F1AA2E40021E7D4 /* TopTabCell.swift */,
+				DA1FF6CB1F1AA2E40021E7D4 /* TopTabCell.xib */,
+				DA5328111F1A89FF006B5C3C /* PageViewController.swift */,
+				DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */,
+				DA1825CC1F1A658300755555 /* BottomTabController.swift */,
+				DA1825BE1F1A648700755555 /* BottomTabController.storyboard */,
+				DA17A22B1F1A715A00668BEF /* CustomViewController.swift */,
+				DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */,
 				DA1825C11F1A648700755555 /* Assets.xcassets */,
 				DA1825C31F1A648700755555 /* LaunchScreen.storyboard */,
 				DA1825C61F1A648700755555 /* Info.plist */,
@@ -124,9 +148,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1825D51F1A67C100755555 /* TopTabController.storyboard in Resources */,
 				DA1825C51F1A648700755555 /* LaunchScreen.storyboard in Resources */,
+				DA1FF6CD1F1AA2E40021E7D4 /* TopTabCell.xib in Resources */,
 				DA1825C21F1A648700755555 /* Assets.xcassets in Resources */,
-				DA1825C01F1A648700755555 /* Main.storyboard in Resources */,
+				DA1825C01F1A648700755555 /* BottomTabController.storyboard in Resources */,
+				DA5328141F1A8A35006B5C3C /* PageViewController.storyboard in Resources */,
+				DA17A22E1F1A716B00668BEF /* CustomViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,20 +165,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1825BD1F1A648700755555 /* ViewController.swift in Sources */,
 				DA1825BB1F1A648700755555 /* AppDelegate.swift in Sources */,
+				DA5328121F1A89FF006B5C3C /* PageViewController.swift in Sources */,
+				DA1825CE1F1A658300755555 /* BottomTabController.swift in Sources */,
+				DA1825D31F1A67AD00755555 /* TopTabController.swift in Sources */,
+				DA17A22C1F1A715A00668BEF /* CustomViewController.swift in Sources */,
+				DA1FF6CC1F1AA2E40021E7D4 /* TopTabCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA1825BE1F1A648700755555 /* Main.storyboard */ = {
+		DA1825BE1F1A648700755555 /* BottomTabController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DA1825BF1F1A648700755555 /* Base */,
 			);
-			name = Main.storyboard;
+			name = BottomTabController.storyboard;
 			sourceTree = "<group>";
 		};
 		DA1825C31F1A648700755555 /* LaunchScreen.storyboard */ = {
@@ -304,6 +336,7 @@
 				DA1825CB1F1A648700755555 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
