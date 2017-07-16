@@ -12,13 +12,15 @@ class TopTabController: UIViewController {
     
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
     
-    var tabTitles: [String] = ["1", "2", "3", "4", "5", "6", "7"]
+    fileprivate var tabTitles: [String] = ["1", "2", "3", "4", "5", "6", "7"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(TopTabCell.self, forCellWithReuseIdentifier: String(describing: TopTabCell.self))
+        collectionView.allowsMultipleSelection = false
+        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .left)
+        TopTabCell.resister(in: collectionView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +44,7 @@ extension TopTabController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TopTabCell.self), for: indexPath) as? TopTabCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopTabCell.className, for: indexPath) as? TopTabCell else {
             return UICollectionViewCell()
         }
         
@@ -54,6 +56,13 @@ extension TopTabController: UICollectionViewDataSource {
 extension TopTabController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        let cell = collectionView.cellForItem(at: indexPath) as? TopTabCell
+        cell?.select()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? TopTabCell
+        cell?.deselect()
     }
 }
 
