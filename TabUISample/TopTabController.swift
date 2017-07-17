@@ -16,14 +16,8 @@ class TopTabController: UIViewController {
     
     /// クラス名
     static let className = String(describing: TopTabController.self)
-    
-    /// PageViewControllerを取得する
-//    fileprivate var pageViewController: PageViewController? {
-//        get {
-//            return childViewControllers.flatMap { $0 as? PageViewController }.first
-//        }
-//    }
-    fileprivate var pageViewController: PageViewController = PageViewController.create()
+
+    fileprivate var pageViewController: PageViewController?
     
     /// タブに表示するタイトル
     fileprivate var titles: [String] = []
@@ -80,6 +74,13 @@ class TopTabController: UIViewController {
     private func setUpPageViewController() {
         print(TopTabController.className + ": " + #function)
     
+        pageViewController = PageViewController.create()
+    
+        guard let pageViewController = pageViewController else { return }
+    
+        pageViewController.pageViewControllerDelegate = self
+        pageViewController.pageViewControllerDataSource = self
+        
         addChildViewController(pageViewController)
         view.addSubview(pageViewController.view)
         
@@ -91,18 +92,14 @@ class TopTabController: UIViewController {
         pageViewController.view.trailingAnchor.constraint(equalTo: childViewBaseView.trailingAnchor, constant: 0).isActive = true
         
         pageViewController.didMove(toParentViewController: self)
-        
-        pageViewController.pageViewControllerDelegate = self
-        pageViewController.pageViewControllerDataSource = self
     }
     
     /// 指定したタブを選択状態にする
     fileprivate func selectTab(at index: Int){
         print(TopTabController.className + ": " + #function)
         
-        guard index >= 0 && index < titles.count else {
-            return
-        }
+        // 引数のインデックスのチェック
+        guard titles.indices.contains(index) else { return }
         
         // 全てのセルを非選択状態にする
         collectionView.visibleCells
@@ -139,11 +136,9 @@ extension TopTabController: PageViewControllerDataSource {
     /// インデックスに応じて表示するViewControllerを返す
     func pageViewController(_ pageViewController: PageViewController,
                             viewControllerForPageAt index: Int) -> UIViewController? {
-        guard index >= 0 && index < viewControllers.count else {
-            print("不正なページ取得 index:\(index)")
-            return nil
-        }
         
+        // 引数のインデックスのチェック
+        guard viewControllers.indices.contains(index) else { return nil }
         return viewControllers[index]
     }
     
@@ -163,7 +158,7 @@ extension TopTabController: UICollectionViewDelegate {
         selectTab(at: indexPath.row)
         
         // ページを移動する
-        pageViewController.paging(index: indexPath.row)
+        pageViewController?.paging(index: indexPath.row)
     }
 
     /// セルが選択解除された時
