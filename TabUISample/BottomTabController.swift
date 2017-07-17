@@ -23,9 +23,11 @@ class BottomTabController: UITabBarController {
     private func setUpViewControllers() {
         var viewControllers: [UIViewController] = []
         
+        let image = UIImage(named: "square.png")
+        
         let topTabViewController = TopTabController.create()
         topTabViewController.tabBarItem = UITabBarItem(title: "1",
-                                                       image: nil,
+                                                       image: image,
                                                        tag: 1)
         
         var topTabVCDataSource: [(title: String, viewController: UIViewController)] = []
@@ -44,7 +46,7 @@ class BottomTabController: UITabBarController {
             let viewController = CustomViewController.create()
             viewController.number = "\(i)"
             viewController.tabBarItem = UITabBarItem(title: "\(i)",
-                                                     image: nil,
+                                                     image: image,
                                                      tag: i)
             viewControllers.append(viewController)
         }
