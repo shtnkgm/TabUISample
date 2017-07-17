@@ -91,6 +91,14 @@ class PageViewController: UIPageViewController {
         setViewControllers([viewController], direction: direction, animated: true, completion: nil)
     }
     
+    /// 自身のインスタンスを生成する
+    static func create() -> PageViewController {
+        print(PageViewController.className + ": " + #function)
+        
+        let storyBoard = UIStoryboard(name: className, bundle: nil)
+        return storyBoard.instantiateViewController(withIdentifier: className) as! PageViewController
+    }
+    
 }
 
 extension PageViewController: UIPageViewControllerDelegate {

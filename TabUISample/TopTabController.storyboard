@@ -35,39 +35,30 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRN-XO-6Yj">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rth-6J-1Q0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <connections>
-                                    <segue destination="0Qf-3e-V8E" kind="embed" id="bp6-qJ-fqR"/>
-                                </connections>
-                            </containerView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HRN-XO-6Yj" firstAttribute="top" secondItem="WPh-4C-9C7" secondAttribute="bottom" id="Fz5-je-tJA"/>
                             <constraint firstItem="WPh-4C-9C7" firstAttribute="leading" secondItem="Tz1-OL-jeT" secondAttribute="leading" id="JGQ-mj-fRy"/>
+                            <constraint firstItem="Rth-6J-1Q0" firstAttribute="top" secondItem="WPh-4C-9C7" secondAttribute="bottom" id="Kug-ig-jDM"/>
+                            <constraint firstAttribute="trailing" secondItem="Rth-6J-1Q0" secondAttribute="trailing" id="VUt-cH-rhZ"/>
                             <constraint firstAttribute="trailing" secondItem="WPh-4C-9C7" secondAttribute="trailing" id="Wm2-PH-aPx"/>
                             <constraint firstItem="WPh-4C-9C7" firstAttribute="top" secondItem="JJ9-dZ-9rS" secondAttribute="bottom" id="Yzi-GH-CLN"/>
-                            <constraint firstItem="HRN-XO-6Yj" firstAttribute="leading" secondItem="Tz1-OL-jeT" secondAttribute="leading" id="lfU-MH-6VQ"/>
-                            <constraint firstAttribute="trailing" secondItem="HRN-XO-6Yj" secondAttribute="trailing" id="sho-tM-AEP"/>
-                            <constraint firstItem="e4h-M3-hSE" firstAttribute="top" secondItem="HRN-XO-6Yj" secondAttribute="bottom" id="xw6-Lv-TbN"/>
+                            <constraint firstItem="e4h-M3-hSE" firstAttribute="top" secondItem="Rth-6J-1Q0" secondAttribute="bottom" id="ikO-7M-kBT"/>
+                            <constraint firstItem="Rth-6J-1Q0" firstAttribute="leading" secondItem="Tz1-OL-jeT" secondAttribute="leading" id="mpq-mi-TGh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="childViewBaseView" destination="Rth-6J-1Q0" id="26e-dc-cWz"/>
                         <outlet property="collectionView" destination="WPh-4C-9C7" id="8vg-xV-90X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIj-Te-We8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-241" y="115"/>
-        </scene>
-        <!--PageViewController-->
-        <scene sceneID="EDR-3a-lN1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PageViewController" id="0Qf-3e-V8E" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XyS-p9-iCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="323" y="114"/>
+            <point key="canvasLocation" x="-871.20000000000005" y="85.907046476761622"/>
         </scene>
     </scenes>
 </document>

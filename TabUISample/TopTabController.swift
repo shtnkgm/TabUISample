@@ -12,15 +12,18 @@ class TopTabController: UIViewController {
     
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
     
+    @IBOutlet fileprivate weak var childViewBaseView: UIView!
+    
     /// クラス名
     static let className = String(describing: TopTabController.self)
     
     /// PageViewControllerを取得する
-    fileprivate var pageViewController: PageViewController? {
-        get {
-            return childViewControllers.flatMap { $0 as? PageViewController }.first
-        }
-    }
+//    fileprivate var pageViewController: PageViewController? {
+//        get {
+//            return childViewControllers.flatMap { $0 as? PageViewController }.first
+//        }
+//    }
+    fileprivate var pageViewController: PageViewController = PageViewController.create()
     
     /// タブに表示するタイトル
     fileprivate var titles: [String] = []
@@ -76,9 +79,21 @@ class TopTabController: UIViewController {
     /// PageViewControllerの設定
     private func setUpPageViewController() {
         print(TopTabController.className + ": " + #function)
+    
+        addChildViewController(pageViewController)
+        view.addSubview(pageViewController.view)
         
-        pageViewController?.pageViewControllerDelegate = self
-        pageViewController?.pageViewControllerDataSource = self
+        // 制約の追加
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        pageViewController.view.topAnchor.constraint(equalTo: childViewBaseView.topAnchor, constant: 0).isActive = true
+        pageViewController.view.leadingAnchor.constraint(equalTo: childViewBaseView.leadingAnchor, constant: 0).isActive = true
+        pageViewController.view.bottomAnchor.constraint(equalTo: childViewBaseView.bottomAnchor, constant: 0).isActive = true
+        pageViewController.view.trailingAnchor.constraint(equalTo: childViewBaseView.trailingAnchor, constant: 0).isActive = true
+        
+        pageViewController.didMove(toParentViewController: self)
+        
+        pageViewController.pageViewControllerDelegate = self
+        pageViewController.pageViewControllerDataSource = self
     }
     
     /// 指定したタブを選択状態にする
@@ -148,7 +163,7 @@ extension TopTabController: UICollectionViewDelegate {
         selectTab(at: indexPath.row)
         
         // ページを移動する
-        pageViewController?.paging(index: indexPath.row)
+        pageViewController.paging(index: indexPath.row)
     }
 
     /// セルが選択解除された時
