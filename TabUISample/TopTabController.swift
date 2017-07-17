@@ -15,7 +15,7 @@ class TopTabController: UIViewController {
     @IBOutlet fileprivate weak var childViewBaseView: UIView!
     
     /// クラス名
-    static let className = String(describing: TopTabController.self)
+    static private let className = String(describing: TopTabController.self)
 
     fileprivate var pageViewController: PageViewController?
     
@@ -31,6 +31,9 @@ class TopTabController: UIViewController {
         super.viewDidLoad()
         setUpCollectionView()
         setUpPageViewController()
+        
+        // 最初のタブを選択状態にする
+        selectTab(at: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,8 +44,6 @@ class TopTabController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print(TopTabController.className + ": " + #function)
-        
-        selectTab(at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,6 +91,7 @@ class TopTabController: UIViewController {
         pageViewController.view.leadingAnchor.constraint(equalTo: childViewBaseView.leadingAnchor, constant: 0).isActive = true
         pageViewController.view.bottomAnchor.constraint(equalTo: childViewBaseView.bottomAnchor, constant: 0).isActive = true
         pageViewController.view.trailingAnchor.constraint(equalTo: childViewBaseView.trailingAnchor, constant: 0).isActive = true
+        pageViewController.view.setNeedsLayout()
         
         pageViewController.didMove(toParentViewController: self)
     }
@@ -198,7 +200,6 @@ extension TopTabController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 44)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

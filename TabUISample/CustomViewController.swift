@@ -14,7 +14,7 @@ class CustomViewController: UIViewController {
     @IBOutlet weak var numberLabel: UILabel!
     
     /// クラス名
-    static let className = String(describing: CustomViewController.self)
+    static private let className = String(describing: CustomViewController.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     /// クラス名
-    static let className = String(describing: PageViewController.self)
+    static private let className = String(describing: PageViewController.self)
     
     /// デリゲート
     weak var pageViewControllerDelegate: PageViewControllerDelegate?
