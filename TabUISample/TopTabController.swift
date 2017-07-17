@@ -35,16 +35,6 @@ class TopTabController: UIViewController {
         // 最初のタブを選択状態にする
         selectTab(at: 0)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(TopTabController.className + ": " + #function)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print(TopTabController.className + ": " + #function)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,8 +46,6 @@ class TopTabController: UIViewController {
         
         titles = dataSource.map { $0.title }
         viewControllers = dataSource.map { $0.viewController }
-        
-        
     }
     
     /// CollectionViewの設定

@@ -36,18 +36,7 @@ class PageViewController: UIPageViewController {
         dataSource = self
         delegate = self
         
-        setUpViewControllers()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(PageViewController.className + ": " + #function)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        print(PageViewController.className + ": " + #function)
+        setUpFirstViewController()
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +44,7 @@ class PageViewController: UIPageViewController {
     }
     
     /// 表示するViewControllerを初期化する
-    private func setUpViewControllers() {
+    private func setUpFirstViewController() {
         print(PageViewController.className + ": " + #function)
         
         guard let viewController = pageViewControllerDataSource?.pageViewController(self, viewControllerForPageAt: 0) else {
