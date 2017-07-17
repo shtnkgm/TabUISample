@@ -23,26 +23,32 @@ class BottomTabController: UITabBarController {
     private func setUpViewControllers() {
         var viewControllers: [UIViewController] = []
         
-        let redViewController = TopTabController.create()
-        redViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
-        redViewController.view.backgroundColor = .red
-        viewControllers.append(redViewController)
+        let topTabViewController = TopTabController.create()
+        topTabViewController.tabBarItem = UITabBarItem(title: "1",
+                                                       image: nil,
+                                                       tag: 1)
         
-        let orangeViewController = CustomViewController.create()
-        orangeViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
-        orangeViewController.view.backgroundColor = .orange
-        viewControllers.append(orangeViewController)
+        var topTabVCDataSource: [(title: String, viewController: UIViewController)] = []
         
-        let yellowViewController = CustomViewController.create()
-        yellowViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 3)
-        yellowViewController.view.backgroundColor = .yellow
-        viewControllers.append(yellowViewController)
+        for i in 1...5 {
+            let title = "1-\(i)"
+            let viewController = CustomViewController.create()
+            viewController.number = title
+            topTabVCDataSource.append((title: title, viewController: viewController))
+        }
+        topTabViewController.configure(dataSource: topTabVCDataSource)
         
-        let greenViewController = CustomViewController.create()
-        greenViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 4)
-        greenViewController.view.backgroundColor = .green
-        viewControllers.append(greenViewController)
+        viewControllers.append(topTabViewController)
         
+        for i in 2...4 {
+            let viewController = CustomViewController.create()
+            viewController.number = "\(i)"
+            viewController.tabBarItem = UITabBarItem(title: "\(i)",
+                                                     image: nil,
+                                                     tag: i)
+            viewControllers.append(viewController)
+        }
+
         setViewControllers(viewControllers, animated: false)
     }
 }

@@ -23,16 +23,28 @@ class TopTabController: UIViewController {
     }
     
     /// タブに表示するタイトル
-    fileprivate var tabTitles: [String] = ["1", "2", "3", "4", "5"]
+    fileprivate var titles: [String] = []
+    
+    /// 表示するViewController
+    fileprivate var viewControllers: [UIViewController] = []
     
     override func viewDidLoad() {
+        print(TopTabController.className + ": " + #function)
+        
         super.viewDidLoad()
         setUpCollectionView()
         setUpPageViewController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(TopTabController.className + ": " + #function)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print(TopTabController.className + ": " + #function)
+        
         selectTab(at: 0)
     }
 
@@ -40,22 +52,40 @@ class TopTabController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    /// データソースの設定
+    func configure(dataSource: [(title: String, viewController: UIViewController)]) {
+        print(TopTabController.className + ": " + #function)
+        
+        titles = dataSource.map { $0.title }
+        viewControllers = dataSource.map { $0.viewController }
+        
+        
+    }
+    
     /// CollectionViewの設定
     private func setUpCollectionView() {
+        print(TopTabController.className + ": " + #function)
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = false
+        collectionView.isPrefetchingEnabled = false
         TopTabCell.resister(in: collectionView)
     }
     
     /// PageViewControllerの設定
     private func setUpPageViewController() {
+        print(TopTabController.className + ": " + #function)
+        
         pageViewController?.pageViewControllerDelegate = self
+        pageViewController?.pageViewControllerDataSource = self
     }
     
     /// 指定したタブを選択状態にする
     fileprivate func selectTab(at index: Int){
-        guard index >= 0 && index < tabTitles.count else {
+        print(TopTabController.className + ": " + #function)
+        
+        guard index >= 0 && index < titles.count else {
             return
         }
         
@@ -76,6 +106,8 @@ class TopTabController: UIViewController {
     
     /// 自身のインスタンスを生成する
     static func create() -> TopTabController {
+        print(TopTabController.className + ": " + #function)
+        
         let storyBoard = UIStoryboard(name: className, bundle: nil)
         return storyBoard.instantiateViewController(withIdentifier: className) as! TopTabController
     }
@@ -85,6 +117,24 @@ extension TopTabController: PageViewControllerDelegate {
     /// ページが移動する直前
     func pageViewController(_ pageViewController: PageViewController, willPagingTo index: Int) {
         selectTab(at: index)
+    }
+}
+
+extension TopTabController: PageViewControllerDataSource {
+    /// インデックスに応じて表示するViewControllerを返す
+    func pageViewController(_ pageViewController: PageViewController,
+                            viewControllerForPageAt index: Int) -> UIViewController? {
+        guard index >= 0 && index < viewControllers.count else {
+            print("不正なページ取得 index:\(index)")
+            return nil
+        }
+        
+        return viewControllers[index]
+    }
+    
+    /// ViewControllerに応じて、インデックスを返す
+    func pageViewController(_ pageViewController: PageViewController, indexOf viewController: UIViewController) -> Int? {
+        return viewControllers.index(of: viewController)
     }
 }
 
@@ -116,7 +166,7 @@ extension TopTabController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return tabTitles.count
+        return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -126,7 +176,7 @@ extension TopTabController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.configure(title: tabTitles[indexPath.row])
+        cell.configure(title: titles[indexPath.row])
         return cell
     }
 }

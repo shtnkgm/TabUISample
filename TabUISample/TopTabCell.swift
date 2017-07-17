@@ -11,6 +11,7 @@ import UIKit
 class TopTabCell: UICollectionViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var bottomBorderView: UIView!
 
     /// クラス名
     static let className = String(describing: TopTabCell.self)
@@ -22,19 +23,28 @@ class TopTabCell: UICollectionViewCell {
     /// セルの設定
     func configure(title: String) {
         titleLabel.text = title
+        
+        if isSelected {
+            select()
+        } else {
+            deselect()
+        }
+        
     }
     
     /// 選択状態にする
     func select() {
         DispatchQueue.main.async { [weak self] in
-            self?.backgroundColor = UIColor(white: 0, alpha: 0.1)
+            self?.titleLabel.textColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
+            self?.bottomBorderView.isHidden = false
         }
     }
     
     /// 非選択状態にする
     func deselect() {
         DispatchQueue.main.async { [weak self] in
-            self?.backgroundColor = .white
+            self?.titleLabel.textColor = .gray
+            self?.bottomBorderView.isHidden = true
         }
     }
     

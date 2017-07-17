@@ -10,11 +10,15 @@ import UIKit
 
 class CustomViewController: UIViewController {
 
+    var number: String = "-"
+    @IBOutlet weak var numberLabel: UILabel!
+    
     /// クラス名
     static let className = String(describing: CustomViewController.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        numberLabel.text = number
     }
 
     override func didReceiveMemoryWarning() {

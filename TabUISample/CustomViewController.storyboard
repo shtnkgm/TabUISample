@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,13 +21,30 @@
                     <view key="view" contentMode="scaleToFill" id="cvz-i1-y2n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G32-If-bwy">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="139"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="G32-If-bwy" secondAttribute="trailing" id="GSI-ME-Q0X"/>
+                            <constraint firstItem="G32-If-bwy" firstAttribute="leading" secondItem="cvz-i1-y2n" secondAttribute="leadingMargin" id="f1Q-yi-N83"/>
+                            <constraint firstItem="G32-If-bwy" firstAttribute="top" secondItem="Xhf-1e-3NA" secondAttribute="bottom" id="ia5-Yo-jWV"/>
+                            <constraint firstItem="FN4-uW-geB" firstAttribute="top" secondItem="G32-If-bwy" secondAttribute="bottom" id="rfY-45-YdD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xFO-eM-ed7"/>
+                    <connections>
+                        <outlet property="numberLabel" destination="G32-If-bwy" id="BCW-vr-Zoi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8g-og-YBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="162"/>
+            <point key="canvasLocation" x="340" y="30"/>
         </scene>
     </scenes>
 </document>
