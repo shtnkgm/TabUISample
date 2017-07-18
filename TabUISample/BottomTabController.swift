@@ -23,12 +23,13 @@ class BottomTabController: UITabBarController {
     private func setUpViewControllers() {
         let image = UIImage(named: "square.png")
         
-        let topTabViewController = TopTabController.create()
-        topTabViewController.tabBarItem = UITabBarItem(title: "1",
+        // 最初のタブ
+        let firstViewController = TopTabController.create()
+        firstViewController.tabBarItem = UITabBarItem(title: "1",
                                                        image: image,
                                                        tag: 1)
     
-        let topTabVCDataSource = [1, 2, 3, 4, 5].map {
+        let firstVCDataSource = [1, 2, 3, 4, 5].map {
             (number: Int) -> Page in
             let title = "1-\(number)"
             let viewController = CustomViewController.create()
@@ -36,9 +37,26 @@ class BottomTabController: UITabBarController {
             return Page(title: title, viewController: viewController)
         }
         
-        topTabViewController.configure(dataSource: topTabVCDataSource)
+        firstViewController.configure(dataSource: firstVCDataSource)
         
-        let viewControllers = [topTabViewController] + [2, 3, 4].map {
+        // 二番目のタブ
+        let secondViewController = TopTabController.create()
+        secondViewController.tabBarItem = UITabBarItem(title: "2",
+                                                      image: image,
+                                                      tag: 1)
+        
+        let secondVCDataSource = [1, 2, 3, 4, 5, 6, 7].map {
+            (number: Int) -> Page in
+            let title = "2-\(number)"
+            let viewController = CustomViewController.create()
+            viewController.number = title
+            return Page(title: title, viewController: viewController)
+        }
+        
+        secondViewController.configure(dataSource: secondVCDataSource)
+        
+        
+        let viewControllers = [firstViewController, secondViewController] + [3, 4, 5].map {
             (number: Int) -> UIViewController in
             let viewController = CustomViewController.create()
             viewController.number = "\(number)"
