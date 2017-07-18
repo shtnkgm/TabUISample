@@ -9,12 +9,12 @@
 import UIKit
 
 class BottomTabController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViewControllers()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -26,9 +26,9 @@ class BottomTabController: UITabBarController {
         // 最初のタブ
         let firstViewController = TopTabController.create()
         firstViewController.tabBarItem = UITabBarItem(title: "1",
-                                                       image: image,
-                                                       tag: 1)
-    
+                                                      image: image,
+                                                      tag: 1)
+        
         let firstVCDataSource = [1, 2, 3, 4, 5].map {
             (number: Int) -> Page in
             let title = "1-\(number)"
@@ -42,8 +42,8 @@ class BottomTabController: UITabBarController {
         // 二番目のタブ
         let secondViewController = TopTabController.create()
         secondViewController.tabBarItem = UITabBarItem(title: "2",
-                                                      image: image,
-                                                      tag: 1)
+                                                       image: image,
+                                                       tag: 1)
         
         let secondVCDataSource = [1, 2, 3, 4, 5, 6, 7].map {
             (number: Int) -> Page in
@@ -65,7 +65,7 @@ class BottomTabController: UITabBarController {
                 tag: number)
             return viewController
         }
-
+        
         setViewControllers(viewControllers, animated: false)
     }
 }
