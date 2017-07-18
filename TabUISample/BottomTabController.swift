@@ -29,11 +29,11 @@ class BottomTabController: UITabBarController {
                                                        tag: 1)
     
         let topTabVCDataSource = [1, 2, 3, 4, 5].map {
-            (number: Int) -> (title: String, viewController: UIViewController) in
+            (number: Int) -> Page in
             let title = "1-\(number)"
             let viewController = CustomViewController.create()
             viewController.number = title
-            return (title: title, viewController: viewController)
+            return Page(title: title, viewController: viewController)
         }
         
         topTabViewController.configure(dataSource: topTabVCDataSource)

@@ -41,7 +41,7 @@ class TopTabController: UIViewController {
     }
     
     /// データソースの設定
-    func configure(dataSource: [(title: String, viewController: UIViewController)]) {
+    func configure(dataSource: [Page]) {
         print(TopTabController.className + ": " + #function)
         
         titles = dataSource.map { $0.title }
