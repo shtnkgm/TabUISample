@@ -70,9 +70,6 @@ class TopTabController: UIViewController {
         print(TopTabController.className + ": " + #function)
     
         let pageViewController = PageViewController.create()
-    
-        // guard let pageViewController = pageViewController else { return }
-    
         pageViewController.pageViewControllerDelegate = self
         pageViewController.pageViewControllerDataSource = self
         
