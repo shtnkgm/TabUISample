@@ -10,20 +10,20 @@ import UIKit
 
 class TopTabController: UIViewController {
     
-    @IBOutlet fileprivate weak var collectionView: UICollectionView!
-    
-    @IBOutlet fileprivate weak var childViewBaseView: UIView!
-    
     /// クラス名
     static private let className = String(describing: TopTabController.self)
-
-    fileprivate var pageViewController: PageViewController?
+    
+    /// タブ表示のためのコレクションビュー
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    
+    /// ChildVCのframeを設定するためのView
+    @IBOutlet fileprivate weak var childViewBaseView: UIView!
     
     /// タブに表示するタイトル
-    fileprivate var titles: [String] = []
+    fileprivate var titles = [String]()
     
     /// 表示するViewController
-    fileprivate var viewControllers: [UIViewController] = []
+    fileprivate var viewControllers = [UIViewController]()
     
     override func viewDidLoad() {
         print(TopTabController.className + ": " + #function)
@@ -54,8 +54,14 @@ class TopTabController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        // タブの複数選択を禁止
         collectionView.allowsMultipleSelection = false
+        
+        // 画面外のセルの先読みを禁止
         collectionView.isPrefetchingEnabled = false
+        
+        // カスタムセルの登録
         TopTabCell.resister(in: collectionView)
     }
     
@@ -63,9 +69,9 @@ class TopTabController: UIViewController {
     private func setUpPageViewController() {
         print(TopTabController.className + ": " + #function)
     
-        pageViewController = PageViewController.create()
+        let pageViewController = PageViewController.create()
     
-        guard let pageViewController = pageViewController else { return }
+        // guard let pageViewController = pageViewController else { return }
     
         pageViewController.pageViewControllerDelegate = self
         pageViewController.pageViewControllerDataSource = self
@@ -148,7 +154,8 @@ extension TopTabController: UICollectionViewDelegate {
         selectTab(at: indexPath.row)
         
         // ページを移動する
-        pageViewController?.paging(index: indexPath.row)
+        let pageViewController = childViewControllers.flatMap { $0 as? PageViewController }.first
+        pageViewController?.move(to: indexPath.row)
     }
 
     /// セルが選択解除された時

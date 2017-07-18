@@ -21,34 +21,31 @@ class BottomTabController: UITabBarController {
     
     /// 表示するViewControllerを初期化する
     private func setUpViewControllers() {
-        var viewControllers: [UIViewController] = []
-        
         let image = UIImage(named: "square.png")
         
         let topTabViewController = TopTabController.create()
         topTabViewController.tabBarItem = UITabBarItem(title: "1",
                                                        image: image,
                                                        tag: 1)
-        
-        var topTabVCDataSource: [(title: String, viewController: UIViewController)] = []
-        
-        for i in 1...5 {
-            let title = "1-\(i)"
+    
+        let topTabVCDataSource = [1, 2, 3, 4, 5].map {
+            (number: Int) -> (title: String, viewController: UIViewController) in
+            let title = "1-\(number)"
             let viewController = CustomViewController.create()
             viewController.number = title
-            topTabVCDataSource.append((title: title, viewController: viewController))
+            return (title: title, viewController: viewController)
         }
+        
         topTabViewController.configure(dataSource: topTabVCDataSource)
         
-        viewControllers.append(topTabViewController)
-        
-        for i in 2...4 {
+        let viewControllers = [topTabViewController] + [2, 3, 4].map {
+            (number: Int) -> UIViewController in
             let viewController = CustomViewController.create()
-            viewController.number = "\(i)"
-            viewController.tabBarItem = UITabBarItem(title: "\(i)",
-                                                     image: image,
-                                                     tag: i)
-            viewControllers.append(viewController)
+            viewController.number = "\(number)"
+            viewController.tabBarItem = UITabBarItem(title: "\(number)",
+                image: image,
+                tag: number)
+            return viewController
         }
 
         setViewControllers(viewControllers, animated: false)

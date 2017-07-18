@@ -18,17 +18,6 @@ class PageViewController: UIPageViewController {
     /// データソース
     weak var pageViewControllerDataSource: PageViewControllerDataSource?
     
-    /// 現在のページインデックス
-    fileprivate var currentPageIndex: Int {
-        get {
-            guard let currentViewController = viewControllers?.first,
-                let index = pageViewControllerDataSource?.pageViewController(self, indexOf: currentViewController) else {
-                    return 0
-            }
-            return index
-        }
-    }
-    
     override func viewDidLoad() {
         print(PageViewController.className + ": " + #function)
         
@@ -58,20 +47,23 @@ class PageViewController: UIPageViewController {
                            completion: nil)
     }
     
-    /// 指定したページへ移動する
-    func paging(index: Int) {
+    /// インデックスで指定したページへ移動する
+    func move(to index: Int) {
         print(PageViewController.className + ": " + #function)
         
+        // 現在のインデックスを取得
+        guard let currentViewController = viewControllers?.first,
+            let currentIndex = pageViewControllerDataSource?.pageViewController(self, indexOf: currentViewController) else {
+                return
+        }
+        
         // 現在表示中であれば何もしない
-        guard index != currentPageIndex else {
+        guard index != currentIndex else {
             return
         }
         
-        // ページを移動する際の向き
-        var direction: UIPageViewControllerNavigationDirection = .reverse
-        if index > currentPageIndex {
-            direction = .forward
-        }
+        // ページを移動する際の方向
+        let direction: UIPageViewControllerNavigationDirection = index > currentIndex ? .forward : .reverse
         
         guard let viewController = pageViewControllerDataSource?.pageViewController(self, viewControllerForPageAt: index) else {
             return
@@ -113,9 +105,8 @@ extension PageViewController: UIPageViewControllerDataSource {
     /// ページを戻る場合のViewControllerを返す
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let index = pageViewControllerDataSource?.pageViewController(self, indexOf: viewController),
-            index > 0 else {
-                return nil
+        guard let index = pageViewControllerDataSource?.pageViewController(self, indexOf: viewController) else {
+            return nil
         }
         
         return pageViewControllerDataSource?.pageViewController(self, viewControllerForPageAt: index - 1)
