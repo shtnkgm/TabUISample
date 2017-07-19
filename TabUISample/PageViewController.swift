@@ -21,7 +21,7 @@ class PageViewController: UIPageViewController {
         dataSource = self
         delegate = self
 
-        setUpFirstViewController()
+        setupFirstViewController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +29,7 @@ class PageViewController: UIPageViewController {
     }
 
     /// 表示するViewControllerを初期化する
-    private func setUpFirstViewController() {
+    private func setupFirstViewController() {
         guard let viewController = pageViewControllerDataSource?.pageViewController(self, viewControllerForPageAt: 0) else {
             return
         }

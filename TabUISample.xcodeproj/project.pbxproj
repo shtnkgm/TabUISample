@@ -21,8 +21,7 @@
 		DA1FF6CD1F1AA2E40021E7D4 /* TopTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1FF6CB1F1AA2E40021E7D4 /* TopTabCell.xib */; };
 		DA5328121F1A89FF006B5C3C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5328111F1A89FF006B5C3C /* PageViewController.swift */; };
 		DA5328141F1A8A35006B5C3C /* PageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */; };
-		DA55553E1F1D2DCE00DB599D /* square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA55553D1F1D2DCE00DB599D /* square@2x.png */; };
-		DA5555421F1DD20A00DB599D /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555411F1DD20A00DB599D /* Page.swift */; };
+		DA5555421F1DD20A00DB599D /* TopTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555411F1DD20A00DB599D /* TopTabItem.swift */; };
 		DA5555461F1F352B00DB599D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555451F1F352B00DB599D /* Extensions.swift */; };
 		DA55554A1F1F3C0300DB599D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA5555491F1F3C0300DB599D /* Settings.bundle */; };
 /* End PBXBuildFile section */
@@ -46,8 +45,7 @@
 		DA1FF6CB1F1AA2E40021E7D4 /* TopTabCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTabCell.xib; sourceTree = "<group>"; };
 		DA5328111F1A89FF006B5C3C /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageViewController.storyboard; sourceTree = "<group>"; };
-		DA55553D1F1D2DCE00DB599D /* square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square@2x.png"; sourceTree = "<group>"; };
-		DA5555411F1DD20A00DB599D /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		DA5555411F1DD20A00DB599D /* TopTabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabItem.swift; sourceTree = "<group>"; };
 		DA5555451F1F352B00DB599D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DA5555491F1F3C0300DB599D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +103,7 @@
 				DA1825BA1F1A648700755555 /* AppDelegate.swift */,
 				DA1825CC1F1A658300755555 /* BottomTabController.swift */,
 				DA1825BE1F1A648700755555 /* BottomTabController.storyboard */,
-				DA5555411F1DD20A00DB599D /* Page.swift */,
+				DA5555411F1DD20A00DB599D /* TopTabItem.swift */,
 				DA1825D21F1A67AD00755555 /* TopTabController.swift */,
 				DA1825D41F1A67C100755555 /* TopTabController.storyboard */,
 				DA1FF6CA1F1AA2E40021E7D4 /* TopTabCell.swift */,
@@ -115,7 +113,6 @@
 				DA17A22B1F1A715A00668BEF /* CustomViewController.swift */,
 				DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */,
 				DA5555451F1F352B00DB599D /* Extensions.swift */,
-				DA55553D1F1D2DCE00DB599D /* square@2x.png */,
 				DA1825C11F1A648700755555 /* Assets.xcassets */,
 				DA5555491F1F3C0300DB599D /* Settings.bundle */,
 				DA1825C31F1A648700755555 /* LaunchScreen.storyboard */,
@@ -194,7 +191,6 @@
 				DA1825C21F1A648700755555 /* Assets.xcassets in Resources */,
 				DA1825C01F1A648700755555 /* BottomTabController.storyboard in Resources */,
 				DA5328141F1A8A35006B5C3C /* PageViewController.storyboard in Resources */,
-				DA55553E1F1D2DCE00DB599D /* square@2x.png in Resources */,
 				DA55554A1F1F3C0300DB599D /* Settings.bundle in Resources */,
 				DA17A22E1F1A716B00668BEF /* CustomViewController.storyboard in Resources */,
 			);
@@ -274,7 +270,7 @@
 				DA1825CE1F1A658300755555 /* BottomTabController.swift in Sources */,
 				DA5555461F1F352B00DB599D /* Extensions.swift in Sources */,
 				DA1825D31F1A67AD00755555 /* TopTabController.swift in Sources */,
-				DA5555421F1DD20A00DB599D /* Page.swift in Sources */,
+				DA5555421F1DD20A00DB599D /* TopTabItem.swift in Sources */,
 				DA17A22C1F1A715A00668BEF /* CustomViewController.swift in Sources */,
 				DA1FF6CC1F1AA2E40021E7D4 /* TopTabCell.swift in Sources */,
 			);

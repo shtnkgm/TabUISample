@@ -24,8 +24,8 @@ class TopTabController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpCollectionView()
-        setUpPageViewController()
+        setupCollectionView()
+        setupPageViewController()
 
         // 最初のタブを選択状態にする
         selectTab(at: 0)
@@ -36,13 +36,13 @@ class TopTabController: UIViewController {
     }
 
     /// データソースの設定
-    func configure(dataSource: [Page]) {
+    func configure(dataSource: [TopTabItem]) {
         titles = dataSource.map { $0.title }
         viewControllers = dataSource.map { $0.viewController }
     }
 
     /// CollectionViewの設定
-    private func setUpCollectionView() {
+    private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
 
@@ -57,7 +57,7 @@ class TopTabController: UIViewController {
     }
 
     /// PageViewControllerの設定
-    private func setUpPageViewController() {
+    private func setupPageViewController() {
         let pageViewController = PageViewController.create()
         pageViewController.pageViewControllerDelegate = self
         pageViewController.pageViewControllerDataSource = self

@@ -10,12 +10,12 @@ import UIKit
 
 class CustomViewController: UIViewController {
 
-    var number: String = "-"
-    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var label: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberLabel.text = number
+
+        label.text =  title ?? tabBarItem.title
     }
 
     override func didReceiveMemoryWarning() {

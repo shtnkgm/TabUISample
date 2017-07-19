@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Page {
+struct TopTabItem {
     let title: String
     let viewController: UIViewController
 }
