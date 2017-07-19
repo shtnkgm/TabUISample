@@ -9,10 +9,7 @@
 import UIKit
 
 class TopTabController: UIViewController {
-    
-    /// クラス名
-    static private let className = String(describing: TopTabController.self)
-    
+        
     /// タブ表示のためのコレクションビュー
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
     
@@ -25,9 +22,7 @@ class TopTabController: UIViewController {
     /// 表示するViewController
     fileprivate var viewControllers = [UIViewController]()
     
-    override func viewDidLoad() {
-        print(TopTabController.className + ": " + #function)
-        
+    override func viewDidLoad() {        
         super.viewDidLoad()
         setUpCollectionView()
         setUpPageViewController()
@@ -42,16 +37,12 @@ class TopTabController: UIViewController {
     
     /// データソースの設定
     func configure(dataSource: [Page]) {
-        print(TopTabController.className + ": " + #function)
-        
         titles = dataSource.map { $0.title }
         viewControllers = dataSource.map { $0.viewController }
     }
     
     /// CollectionViewの設定
     private func setUpCollectionView() {
-        print(TopTabController.className + ": " + #function)
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -67,8 +58,6 @@ class TopTabController: UIViewController {
     
     /// PageViewControllerの設定
     private func setUpPageViewController() {
-        print(TopTabController.className + ": " + #function)
-    
         let pageViewController = PageViewController.create()
         pageViewController.pageViewControllerDelegate = self
         pageViewController.pageViewControllerDataSource = self
@@ -89,8 +78,6 @@ class TopTabController: UIViewController {
     
     /// 指定したタブを選択状態にする
     fileprivate func selectTab(at index: Int){
-        print(TopTabController.className + ": " + #function)
-        
         // 引数のインデックスのチェック
         guard titles.indices.contains(index) else { return }
         
@@ -111,8 +98,6 @@ class TopTabController: UIViewController {
     
     /// 自身のインスタンスを生成する
     static func create() -> TopTabController {
-        print(TopTabController.className + ": " + #function)
-        
         let storyBoard = UIStoryboard(name: className, bundle: nil)
         return storyBoard.instantiateViewController(withIdentifier: className) as! TopTabController
     }

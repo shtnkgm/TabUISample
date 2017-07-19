@@ -9,6 +9,6 @@
 import UIKit
 
 struct Page {
-    var title: String
-    var viewController: UIViewController
+    let title: String
+    let viewController: UIViewController
 }

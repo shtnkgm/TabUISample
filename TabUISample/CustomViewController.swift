@@ -13,9 +13,6 @@ class CustomViewController: UIViewController {
     var number: String = "-"
     @IBOutlet weak var numberLabel: UILabel!
     
-    /// クラス名
-    static private let className = String(describing: CustomViewController.self)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         numberLabel.text = number

@@ -9,8 +9,6 @@
 import UIKit
 
 class PageViewController: UIPageViewController {
-    /// クラス名
-    static private let className = String(describing: PageViewController.self)
     
     /// デリゲート
     weak var pageViewControllerDelegate: PageViewControllerDelegate?
@@ -19,8 +17,6 @@ class PageViewController: UIPageViewController {
     weak var pageViewControllerDataSource: PageViewControllerDataSource?
     
     override func viewDidLoad() {
-        print(PageViewController.className + ": " + #function)
-        
         super.viewDidLoad()
         dataSource = self
         delegate = self
@@ -34,8 +30,6 @@ class PageViewController: UIPageViewController {
     
     /// 表示するViewControllerを初期化する
     private func setUpFirstViewController() {
-        print(PageViewController.className + ": " + #function)
-        
         guard let viewController = pageViewControllerDataSource?.pageViewController(self, viewControllerForPageAt: 0) else {
             return
         }
@@ -49,8 +43,6 @@ class PageViewController: UIPageViewController {
     
     /// インデックスで指定したページへ移動する
     func move(to index: Int) {
-        print(PageViewController.className + ": " + #function)
-        
         // 現在のインデックスを取得
         guard let currentViewController = viewControllers?.first,
             let currentIndex = pageViewControllerDataSource?.pageViewController(self, indexOf: currentViewController) else {
@@ -74,8 +66,6 @@ class PageViewController: UIPageViewController {
     
     /// 自身のインスタンスを生成する
     static func create() -> PageViewController {
-        print(PageViewController.className + ": " + #function)
-        
         let storyBoard = UIStoryboard(name: className, bundle: nil)
         return storyBoard.instantiateViewController(withIdentifier: className) as! PageViewController
     }

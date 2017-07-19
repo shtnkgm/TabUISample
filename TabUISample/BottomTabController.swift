@@ -29,7 +29,7 @@ class BottomTabController: UITabBarController {
                                                       image: image,
                                                       tag: 1)
         
-        let firstVCDataSource = [1, 2, 3, 4, 5].map {
+        let firstVCDataSource = (1...5).map {
             (number: Int) -> Page in
             let title = "1-\(number)"
             let viewController = CustomViewController.create()
@@ -39,24 +39,7 @@ class BottomTabController: UITabBarController {
         
         firstViewController.configure(dataSource: firstVCDataSource)
         
-        // 二番目のタブ
-        let secondViewController = TopTabController.create()
-        secondViewController.tabBarItem = UITabBarItem(title: "2",
-                                                       image: image,
-                                                       tag: 1)
-        
-        let secondVCDataSource = [1, 2, 3, 4, 5, 6, 7].map {
-            (number: Int) -> Page in
-            let title = "2-\(number)"
-            let viewController = CustomViewController.create()
-            viewController.number = title
-            return Page(title: title, viewController: viewController)
-        }
-        
-        secondViewController.configure(dataSource: secondVCDataSource)
-        
-        
-        let viewControllers = [firstViewController, secondViewController] + [3, 4, 5].map {
+        let viewControllers = [firstViewController] + (2...4).map {
             (number: Int) -> UIViewController in
             let viewController = CustomViewController.create()
             viewController.number = "\(number)"

@@ -12,9 +12,6 @@ class TopTabCell: UICollectionViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var bottomBorderView: UIView!
-
-    /// クラス名
-    static let className = String(describing: TopTabCell.self)
     
     override func awakeFromNib() {
         super.awakeFromNib()

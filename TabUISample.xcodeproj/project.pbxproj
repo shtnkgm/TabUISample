@@ -22,6 +22,7 @@
 		DA5328141F1A8A35006B5C3C /* PageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */; };
 		DA55553E1F1D2DCE00DB599D /* square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA55553D1F1D2DCE00DB599D /* square@2x.png */; };
 		DA5555421F1DD20A00DB599D /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555411F1DD20A00DB599D /* Page.swift */; };
+		DA5555461F1F352B00DB599D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555451F1F352B00DB599D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageViewController.storyboard; sourceTree = "<group>"; };
 		DA55553D1F1D2DCE00DB599D /* square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square@2x.png"; sourceTree = "<group>"; };
 		DA5555411F1DD20A00DB599D /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		DA5555451F1F352B00DB599D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				DA5328131F1A8A35006B5C3C /* PageViewController.storyboard */,
 				DA17A22B1F1A715A00668BEF /* CustomViewController.swift */,
 				DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */,
+				DA5555451F1F352B00DB599D /* Extensions.swift */,
 				DA55553D1F1D2DCE00DB599D /* square@2x.png */,
 				DA1825C11F1A648700755555 /* Assets.xcassets */,
 				DA1825C31F1A648700755555 /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 				DA1825BB1F1A648700755555 /* AppDelegate.swift in Sources */,
 				DA5328121F1A89FF006B5C3C /* PageViewController.swift in Sources */,
 				DA1825CE1F1A658300755555 /* BottomTabController.swift in Sources */,
+				DA5555461F1F352B00DB599D /* Extensions.swift in Sources */,
 				DA1825D31F1A67AD00755555 /* TopTabController.swift in Sources */,
 				DA5555421F1DD20A00DB599D /* Page.swift in Sources */,
 				DA17A22C1F1A715A00668BEF /* CustomViewController.swift in Sources */,
