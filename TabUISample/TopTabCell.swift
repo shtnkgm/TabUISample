@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 上タブ用のカスタムセル
 class TopTabCell: UICollectionViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!

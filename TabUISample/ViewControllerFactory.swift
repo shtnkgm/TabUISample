@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewControllerの生成を行うファクトリークラス
 struct ViewControllerFactory {
 
 /// 「フィード」タブのViewControllerを生成する

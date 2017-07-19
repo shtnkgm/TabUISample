@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 画面名称を表示するだけのViewController
 class CustomViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!

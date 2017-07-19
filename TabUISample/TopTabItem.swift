@@ -8,6 +8,7 @@
 
 import UIKit
 
+// 上タブのアイテムを表現したデータモデル
 struct TopTabItem {
     let title: String
     let viewController: UIViewController

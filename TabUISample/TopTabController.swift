@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 上タブを管理するクラス
 class TopTabController: UIViewController {
 
     /// タブ表示のためのコレクションビュー

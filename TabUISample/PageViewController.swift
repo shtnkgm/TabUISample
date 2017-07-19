@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 上タブで管理されるPageViewController
 class PageViewController: UIPageViewController {
 
     /// デリゲート
