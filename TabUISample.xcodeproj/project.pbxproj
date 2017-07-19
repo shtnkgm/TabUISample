@@ -135,6 +135,7 @@
 				6DE2631874C6A2D6D361C297 /* [CP] Embed Pods Frameworks */,
 				9AF1BEE74FDDB500BB2A0219 /* [CP] Copy Pods Resources */,
 				DA5555471F1F38B300DB599D /* SwiftLint */,
+				DA5555481F1F3A9200DB599D /* LicensPlist */,
 			);
 			buildRules = (
 			);
@@ -242,6 +243,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		DA5555481F1F3A9200DB599D /* LicensPlist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = LicensPlist;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\ncd $SRCROOT\n/usr/local/bin/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi";
 		};
 		F37272267660936254BEB9D0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
