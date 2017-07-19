@@ -17,11 +17,8 @@ class TopTabController: UIViewController {
     /// ChildVCのframeを設定するためのView
     @IBOutlet fileprivate weak var childViewBaseView: UIView!
 
-    /// タブに表示するタイトル
-    fileprivate var titles = [String]()
-
-    /// 表示するViewController
-    fileprivate var viewControllers = [UIViewController]()
+    // 上タブデータ
+    fileprivate var topTabItems = [TopTabItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +33,9 @@ class TopTabController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    /// データソースの設定
-    func configure(dataSource: [TopTabItem]) {
-        titles = dataSource.map { $0.title }
-        viewControllers = dataSource.map { $0.viewController }
+    /// 上タブデータの設定
+    func configure(topTabItems: [TopTabItem]) {
+        self.topTabItems = topTabItems
     }
 
     /// CollectionViewの設定
@@ -80,7 +76,7 @@ class TopTabController: UIViewController {
     /// 指定したタブを選択状態にする
     fileprivate func selectTab(at index: Int) {
         // 引数のインデックスのチェック
-        guard titles.indices.contains(index) else { return }
+        guard topTabItems.indices.contains(index) else { return }
 
         // 全てのセルを非選択状態にする
         collectionView.visibleCells
@@ -117,12 +113,13 @@ extension TopTabController: PageViewControllerDataSource {
                             viewControllerForPageAt index: Int) -> UIViewController? {
 
         // 引数のインデックスのチェック
-        guard viewControllers.indices.contains(index) else { return nil }
-        return viewControllers[index]
+        guard topTabItems.indices.contains(index) else { return nil }
+        return topTabItems[index].viewController
     }
 
     /// ViewControllerに応じて、インデックスを返す
     func pageViewController(_ pageViewController: PageViewController, indexOf viewController: UIViewController) -> Int? {
+        let viewControllers = topTabItems.map { $0.viewController }
         return viewControllers.index(of: viewController)
     }
 }
@@ -156,7 +153,7 @@ extension TopTabController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return titles.count
+        return topTabItems.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -166,7 +163,7 @@ extension TopTabController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        cell.configure(title: titles[indexPath.row])
+        cell.configure(title: topTabItems[indexPath.row].title)
         return cell
     }
 }

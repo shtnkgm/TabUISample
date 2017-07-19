@@ -18,14 +18,14 @@ static func createFeed() -> UIViewController {
                                              image: UIImage(named: "feed"),
                                              selectedImage: UIImage(named: "feed_filled"))
 
-    let dataSource = (1...5).map {
+    let topTabItems = (1...5).map {
         (number: Int) -> TopTabItem in
         let title = "フィード" + "\(number)"
         let viewController = CustomViewController.create()
         viewController.title = title
         return TopTabItem(title: title, viewController: viewController)
     }
-    viewController.configure(dataSource: dataSource)
+    viewController.configure(topTabItems: topTabItems)
     return viewController
 }
 
