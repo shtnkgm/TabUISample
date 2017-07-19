@@ -17,7 +17,7 @@ class TopTabController: UIViewController {
     /// ChildVCのframeを設定するためのView
     @IBOutlet fileprivate weak var childViewBaseView: UIView!
 
-    // 上タブデータ
+    /// 上タブデータ
     fileprivate var topTabItems = [TopTabItem]()
 
     override func viewDidLoad() {
