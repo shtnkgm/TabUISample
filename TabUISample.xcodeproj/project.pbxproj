@@ -24,6 +24,7 @@
 		DA5555421F1DD20A00DB599D /* TopTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555411F1DD20A00DB599D /* TopTabItem.swift */; };
 		DA5555461F1F352B00DB599D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555451F1F352B00DB599D /* Extensions.swift */; };
 		DA55554A1F1F3C0300DB599D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA5555491F1F3C0300DB599D /* Settings.bundle */; };
+		DA5555521F1FBAA000DB599D /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5555511F1FBAA000DB599D /* ViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		DA5555411F1DD20A00DB599D /* TopTabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabItem.swift; sourceTree = "<group>"; };
 		DA5555451F1F352B00DB599D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DA5555491F1F3C0300DB599D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		DA5555511F1FBAA000DB599D /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1825BA1F1A648700755555 /* AppDelegate.swift */,
+				DA5555511F1FBAA000DB599D /* ViewControllerFactory.swift */,
 				DA1825CC1F1A658300755555 /* BottomTabController.swift */,
 				DA1825BE1F1A648700755555 /* BottomTabController.storyboard */,
 				DA5555411F1DD20A00DB599D /* TopTabItem.swift */,
@@ -268,6 +271,7 @@
 				DA1825BB1F1A648700755555 /* AppDelegate.swift in Sources */,
 				DA5328121F1A89FF006B5C3C /* PageViewController.swift in Sources */,
 				DA1825CE1F1A658300755555 /* BottomTabController.swift in Sources */,
+				DA5555521F1FBAA000DB599D /* ViewControllerFactory.swift in Sources */,
 				DA5555461F1F352B00DB599D /* Extensions.swift in Sources */,
 				DA1825D31F1A67AD00755555 /* TopTabController.swift in Sources */,
 				DA5555421F1DD20A00DB599D /* TopTabItem.swift in Sources */,
