@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5AE0F4FA56161F30BC9E2F /* Pods_TabUISample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B941D568209F406DF45C4F6A /* Pods_TabUISample.framework */; };
 		DA17A22C1F1A715A00668BEF /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17A22B1F1A715A00668BEF /* CustomViewController.swift */; };
 		DA17A22E1F1A716B00668BEF /* CustomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */; };
 		DA1825BB1F1A648700755555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1825BA1F1A648700755555 /* AppDelegate.swift */; };
@@ -26,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		553A556D76F41C87DBCBCAC2 /* Pods-TabUISample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabUISample.release.xcconfig"; path = "Pods/Target Support Files/Pods-TabUISample/Pods-TabUISample.release.xcconfig"; sourceTree = "<group>"; };
+		AA880443279DE8B076B03F67 /* Pods-TabUISample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabUISample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TabUISample/Pods-TabUISample.debug.xcconfig"; sourceTree = "<group>"; };
+		B941D568209F406DF45C4F6A /* Pods_TabUISample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabUISample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA17A22B1F1A715A00668BEF /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		DA17A22D1F1A716B00668BEF /* CustomViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomViewController.storyboard; sourceTree = "<group>"; };
 		DA1825B71F1A648700755555 /* TabUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5AE0F4FA56161F30BC9E2F /* Pods_TabUISample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57482CFC0DA3F140C9583979 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA880443279DE8B076B03F67 /* Pods-TabUISample.debug.xcconfig */,
+				553A556D76F41C87DBCBCAC2 /* Pods-TabUISample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5DCD636961EAD540894A92A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B941D568209F406DF45C4F6A /* Pods_TabUISample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA1825AE1F1A648700755555 = {
 			isa = PBXGroup;
 			children = (
 				DA1825B91F1A648700755555 /* TabUISample */,
 				DA1825B81F1A648700755555 /* Products */,
+				57482CFC0DA3F140C9583979 /* Pods */,
+				5DCD636961EAD540894A92A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,9 +128,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA1825C91F1A648700755555 /* Build configuration list for PBXNativeTarget "TabUISample" */;
 			buildPhases = (
+				F37272267660936254BEB9D0 /* [CP] Check Pods Manifest.lock */,
 				DA1825B31F1A648700755555 /* Sources */,
 				DA1825B41F1A648700755555 /* Frameworks */,
 				DA1825B51F1A648700755555 /* Resources */,
+				6DE2631874C6A2D6D361C297 /* [CP] Embed Pods Frameworks */,
+				9AF1BEE74FDDB500BB2A0219 /* [CP] Copy Pods Resources */,
+				DA5555471F1F38B300DB599D /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -169,6 +197,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6DE2631874C6A2D6D361C297 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TabUISample/Pods-TabUISample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AF1BEE74FDDB500BB2A0219 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TabUISample/Pods-TabUISample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA5555471F1F38B300DB599D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		F37272267660936254BEB9D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA1825B31F1A648700755555 /* Sources */ = {
@@ -305,6 +395,7 @@
 		};
 		DA1825CA1F1A648700755555 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA880443279DE8B076B03F67 /* Pods-TabUISample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8U533Y3X82;
@@ -318,6 +409,7 @@
 		};
 		DA1825CB1F1A648700755555 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 553A556D76F41C87DBCBCAC2 /* Pods-TabUISample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8U533Y3X82;

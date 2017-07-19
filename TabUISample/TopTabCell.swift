@@ -12,7 +12,7 @@ class TopTabCell: UICollectionViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var bottomBorderView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -20,15 +20,15 @@ class TopTabCell: UICollectionViewCell {
     /// セルの設定
     func configure(title: String) {
         titleLabel.text = title
-        
+
         if isSelected {
             select()
         } else {
             deselect()
         }
-        
+
     }
-    
+
     /// 選択状態にする
     func select() {
         DispatchQueue.main.async { [weak self] in
@@ -36,7 +36,7 @@ class TopTabCell: UICollectionViewCell {
             self?.bottomBorderView.isHidden = false
         }
     }
-    
+
     /// 非選択状態にする
     func deselect() {
         DispatchQueue.main.async { [weak self] in
@@ -44,7 +44,7 @@ class TopTabCell: UICollectionViewCell {
             self?.bottomBorderView.isHidden = true
         }
     }
-    
+
     /// CollectionViewにセルを登録する
     static func resister(in collectionView: UICollectionView) {
         let cellNib = UINib(nibName: className, bundle: nil)
