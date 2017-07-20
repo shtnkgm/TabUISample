@@ -11,7 +11,7 @@ import UIKit
 /// 画面名称を表示するだけのViewController
 final class CustomViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

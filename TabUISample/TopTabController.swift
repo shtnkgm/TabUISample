@@ -26,7 +26,7 @@ final class TopTabController: UIViewController {
         setupPageViewController()
 
         // 最初のタブを選択状態にする
-        selectTab(at: 0)
+        selectTab(at: IndexPath(row: 0, section: 0))
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,23 +60,16 @@ final class TopTabController: UIViewController {
         pageViewController.pageViewControllerDataSource = self
 
         addChildViewController(pageViewController)
-        view.addSubview(pageViewController.view)
-
-        // 制約の追加
-        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        pageViewController.view.topAnchor.constraint(equalTo: childViewBaseView.topAnchor, constant: 0).isActive = true
-        pageViewController.view.leadingAnchor.constraint(equalTo: childViewBaseView.leadingAnchor, constant: 0).isActive = true
-        pageViewController.view.bottomAnchor.constraint(equalTo: childViewBaseView.bottomAnchor, constant: 0).isActive = true
-        pageViewController.view.trailingAnchor.constraint(equalTo: childViewBaseView.trailingAnchor, constant: 0).isActive = true
-        pageViewController.view.setNeedsLayout()
-
+        pageViewController.view.overlay(on: childViewBaseView)
         pageViewController.didMove(toParentViewController: self)
     }
 
     /// 指定したタブを選択状態にする
-    fileprivate func selectTab(at index: Int) {
-        // 引数のインデックスのチェック
-        guard topTabItems.indices.contains(index) else { return }
+    fileprivate func selectTab(at indexPath: IndexPath) {
+        guard topTabItems.indices.contains(indexPath.row) else { return }
+
+        // 選択したタブを中央に移動させる
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 
         // 全てのセルを非選択状態にする
         collectionView.visibleCells
@@ -84,7 +77,6 @@ final class TopTabController: UIViewController {
             .forEach { $0.deselect() }
 
         // 指定されたインデックスのセルを選択状態にする
-        let indexPath = IndexPath(row: index, section: 0)
         collectionView.selectItem(at: indexPath,
                                   animated: true,
                                   scrollPosition: .centeredHorizontally)
@@ -102,17 +94,14 @@ final class TopTabController: UIViewController {
 
 extension TopTabController: PageViewControllerDelegate {
     /// ページが移動する直前
-    func pageViewController(_ pageViewController: PageViewController, willPagingTo index: Int) {
-        selectTab(at: index)
+    func pageViewController(_ pageViewController: PageViewController, willMoveTo index: Int) {
+        selectTab(at: IndexPath(row: index, section: 0))
     }
 }
 
 extension TopTabController: PageViewControllerDataSource {
     /// インデックスに応じて表示するViewControllerを返す
-    func pageViewController(_ pageViewController: PageViewController,
-                            viewControllerForPageAt index: Int) -> UIViewController? {
-
-        // 引数のインデックスのチェック
+    func pageViewController(_ pageViewController: PageViewController, viewControllerForPageAt index: Int) -> UIViewController? {
         guard topTabItems.indices.contains(index) else { return nil }
         return topTabItems[index].viewController
     }
@@ -127,11 +116,8 @@ extension TopTabController: PageViewControllerDataSource {
 extension TopTabController: UICollectionViewDelegate {
 
     /// セルが選択された時
-    func collectionView(_ collectionView: UICollectionView,
-                        didSelectItemAt indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-
-        selectTab(at: indexPath.row)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectTab(at: indexPath)
 
         // ページを移動する
         let pageViewController = childViewControllers.flatMap { $0 as? PageViewController }.first
@@ -139,8 +125,7 @@ extension TopTabController: UICollectionViewDelegate {
     }
 
     /// セルが選択解除された時
-    func collectionView(_ collectionView: UICollectionView,
-                        didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? TopTabCell
         cell?.deselect()
     }
@@ -151,15 +136,13 @@ extension TopTabController: UICollectionViewDataSource {
         return 1
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return topTabItems.count
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopTabCell.className, for: indexPath) as? TopTabCell else {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = TopTabCell.className
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? TopTabCell else {
             return UICollectionViewCell()
         }
 

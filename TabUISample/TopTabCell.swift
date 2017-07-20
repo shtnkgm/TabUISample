@@ -12,7 +12,7 @@ import UIKit
 final class TopTabCell: UICollectionViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet weak var bottomBorderView: UIView!
+    @IBOutlet private weak var bottomBorderView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

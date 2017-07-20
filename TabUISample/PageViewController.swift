@@ -8,6 +8,19 @@
 
 import UIKit
 
+protocol PageViewControllerDelegate: class {
+    /// ページを移動する直前
+    func pageViewController(_ pageViewController: PageViewController, willMoveTo index: Int)
+}
+
+protocol PageViewControllerDataSource: class {
+    /// ページインデックスに応じて表示するViewControllerを返す
+    func pageViewController(_ pageViewController: PageViewController, viewControllerForPageAt index: Int) -> UIViewController?
+
+    /// ViewControllerに応じて、インデックスを返す
+    func pageViewController(_ pageViewController: PageViewController, indexOf viewController: UIViewController) -> Int?
+}
+
 /// 上タブで管理されるPageViewController
 final class PageViewController: UIPageViewController {
 
@@ -82,7 +95,7 @@ extension PageViewController: UIPageViewControllerDelegate {
                 return
         }
 
-        pageViewControllerDelegate?.pageViewController(self, willPagingTo: index)
+        pageViewControllerDelegate?.pageViewController(self, willMoveTo: index)
     }
 
     /// ページを移動した直後
@@ -112,17 +125,4 @@ extension PageViewController: UIPageViewControllerDataSource {
 
         return pageViewControllerDataSource?.pageViewController(self, viewControllerForPageAt: index + 1)
     }
-}
-
-protocol PageViewControllerDelegate: class {
-    /// ページを移動する直前
-    func pageViewController(_ pageViewController: PageViewController, willPagingTo index: Int)
-}
-
-protocol PageViewControllerDataSource: class {
-    /// ページインデックスに応じて表示するViewControllerを返す
-    func pageViewController(_ pageViewController: PageViewController, viewControllerForPageAt index: Int) -> UIViewController?
-
-    /// ViewControllerに応じて、インデックスを返す
-    func pageViewController(_ pageViewController: PageViewController, indexOf viewController: UIViewController) -> Int?
 }
