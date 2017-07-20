@@ -9,7 +9,7 @@
 import UIKit
 
 /// 画面名称を表示するだけのViewController
-class CustomViewController: UIViewController {
+final class CustomViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
 

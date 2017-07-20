@@ -9,10 +9,15 @@
 import UIKit
 
 /// 上タブの要素を表現したデータモデル
-struct TopTabItem {
+final class TopTabItem {
     /// タブのタイトル
     let title: String
-    
+
     /// タブに紐づくViewController
     let viewController: UIViewController
+
+    init(title: String, viewController: UIViewController) {
+        self.title = title
+        self.viewController = viewController
+    }
 }

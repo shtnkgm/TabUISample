@@ -9,7 +9,7 @@
 import UIKit
 
 /// 上タブで管理されるPageViewController
-class PageViewController: UIPageViewController {
+final class PageViewController: UIPageViewController {
 
     /// デリゲート
     weak var pageViewControllerDelegate: PageViewControllerDelegate?

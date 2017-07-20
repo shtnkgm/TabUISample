@@ -9,7 +9,7 @@
 import UIKit
 
 /// 上タブ用のカスタムセル
-class TopTabCell: UICollectionViewCell {
+final class TopTabCell: UICollectionViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var bottomBorderView: UIView!

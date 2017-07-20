@@ -9,7 +9,7 @@
 import UIKit
 
 /// 下タブの管理を行うクラス
-class BottomTabController: UITabBarController {
+final class BottomTabController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

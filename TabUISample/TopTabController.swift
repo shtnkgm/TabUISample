@@ -9,7 +9,7 @@
 import UIKit
 
 /// 上タブを管理するクラス
-class TopTabController: UIViewController {
+final class TopTabController: UIViewController {
 
     /// タブ表示のためのコレクションビュー
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
